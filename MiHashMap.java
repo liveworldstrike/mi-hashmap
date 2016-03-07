@@ -80,7 +80,11 @@ public class MiHashMap
      */
     public boolean isEmpty()
     {
-     return (claves.length == 0);
+        //metodo sacado de array list int que nos hace lo que nos pide 
+        return (claves.length == 0);
     
     }
+    
+    
+  
 }
