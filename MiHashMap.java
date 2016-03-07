@@ -47,7 +47,6 @@ public class MiHashMap
         }
         //si no existe creamos una nueva 
         if(!encontrado){
-  
             nuevaClave[nuevaClave.length -1] = clave;
             nuevosNumeros[nuevosNumeros.length - 1] = valor;
             //lo guardamos
@@ -58,4 +57,30 @@ public class MiHashMap
         
     }
     
+    /**
+     * Devuelve el valor asociado con la clave especificada 
+     * -1 en caso de que la clave no exista.
+     */
+    public int get(String clave)
+    {
+        int valor = -1;
+        boolean contiene = false;
+        for(int a= 0; a < claves.length && !contiene; a++ )
+        {
+            if (claves[a] == clave){
+                valor = numeros[a];
+                contiene = true;
+            }
+        }
+        return valor;
+    }
+    
+    /**
+     * devuelve true si el mapa no contiene elementos.
+     */
+    public boolean isEmpty()
+    {
+     return (claves.length == 0);
+    
+    }
 }
