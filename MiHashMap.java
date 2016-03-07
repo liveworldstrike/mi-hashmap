@@ -1,3 +1,4 @@
+import java.util.Arrays;
 
 /**
  * Write a description of class MiHashMap here.
@@ -7,27 +8,54 @@
  */
 public class MiHashMap
 {
-    // instance variables - replace the example below with your own
-    private int x;
-
+    // arrays que guarda los valores k introducimos 
+    private int [] numeros;
+    //arrays que guarda las claves 
+    private String[] claves ;
     /**
      * Constructor for objects of class MiHashMap
      */
     public MiHashMap()
     {
-        // initialise instance variables
-        x = 0;
+        numeros = new int[0];
+        claves = new String[0];
     }
-
+    
     /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
+     * Asocia el valor especificado con la clave especificada.
+     * Si la clave existía, entonces sobreescribe su valor y devuelve el valor antiguo.
+     * Si no existía devuelve -1.
      */
-    public int sampleMethod(int y)
+    public int put(String clave, int valor)
     {
-        // put your code here
-        return x + y;
+        boolean encontrado = false;
+        int valorAnterior = -1;
+        String[]nuevaClave = new String[claves.length + 1];           
+        int[]nuevosNumeros = new int[numeros.length +1 ];
+        //recorremos el array y miramos si existe 
+        for(int a = 0; a < claves.length; a++){
+            //agregamos los viejos elementos al nuevo mapa
+            nuevaClave[a] = claves [a];
+            nuevosNumeros[a] = numeros[a];
+            //si esta repetido combiamos el valor 
+            if(claves[a] == clave && !encontrado)
+            {
+                valorAnterior = numeros[a];
+                numeros[a] = valor; 
+                encontrado = true;
+            }
+        }
+        //si no existe creamos una nueva 
+        if(!encontrado){
+  
+            nuevaClave[nuevaClave.length -1] = clave;
+            nuevosNumeros[nuevosNumeros.length - 1] = valor;
+            //lo guardamos
+            claves = nuevaClave;
+            numeros = nuevosNumeros;
+        }
+        return valorAnterior;
+        
     }
+    
 }
