@@ -92,7 +92,7 @@ public class MiHashMap
     {
         return claves.length;
     }
-    
+
     /**
      * vacía el mapa.
      */
@@ -101,8 +101,18 @@ public class MiHashMap
         numeros = new int[0];
         claves = new String[0];
     }
-    
+
     /**
-     * 
+     * Devuelve true si el mapa contiene la clave dada.
      */
+    public boolean containsKey(String clave)
+    {
+        boolean contiene = false;
+        for(int a = 0;a < claves.length || contiene == false;a++){
+            if (claves[a].equals(clave)){
+                contiene = true;
+            }
+        }
+        return contiene;
+    }
 }
