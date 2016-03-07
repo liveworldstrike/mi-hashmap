@@ -20,7 +20,7 @@ public class MiHashMap
         numeros = new int[0];
         claves = new String[0];
     }
-    
+
     /**
      * Asocia el valor especificado con la clave especificada.
      * Si la clave existía, entonces sobreescribe su valor y devuelve el valor antiguo.
@@ -54,9 +54,9 @@ public class MiHashMap
             numeros = nuevosNumeros;
         }
         return valorAnterior;
-        
+
     }
-    
+
     /**
      * Devuelve el valor asociado con la clave especificada 
      * -1 en caso de que la clave no exista.
@@ -74,7 +74,7 @@ public class MiHashMap
         }
         return valor;
     }
-    
+
     /**
      * devuelve true si el mapa no contiene elementos.
      */
@@ -82,14 +82,27 @@ public class MiHashMap
     {
         //metodo sacado de array list int que nos hace lo que nos pide 
         return (claves.length == 0);
-    
+
     }
-    
+
     /**
      * devuelve el número de elementos del mapa.
      */
-   public int size()
-   {
-    return claves.length;
-   }
+    public int size()
+    {
+        return claves.length;
+    }
+    
+    /**
+     * vacía el mapa.
+     */
+    public void clear()
+    {
+        numeros = new int[0];
+        claves = new String[0];
+    }
+    
+    /**
+     * 
+     */
 }
